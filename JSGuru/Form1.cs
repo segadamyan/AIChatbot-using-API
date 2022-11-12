@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
@@ -20,6 +21,28 @@ namespace JSGuru
 
         }
 
+        private static string callPythonScript(string question)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = @"C:\Users\User\AppData\Local\Programs\Python\Python311\python.exe";
+
+            string script = @"C:\Scripts\script.py";
+            psi.Arguments = $"\"{script}\" \"{question}\"";
+
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+            psi.RedirectStandardError = true;
+            psi.RedirectStandardOutput = true;
+
+            string errors = "";
+            string result = "";
+            using (Process process = Process.Start(psi))
+            {
+                errors = process.StandardError.ReadToEnd();
+                result = process.StandardOutput.ReadToEnd();
+            }
+            return result;
+        }
         private static string callOpenAI(int tokens, string input, string engine, double temperature, int topP, double frequencyPenalty, double presencePenalty)
         {
             string openAiKey = "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";
@@ -61,7 +84,8 @@ namespace JSGuru
             {
                 string question = this.textBoxQuestion.Text;
                 this.panel.Controls.Add(this.question.GetMessage(question));
-                var answer = callOpenAI(250, question, "text-davinci-002", 0.7, 1, 1, 0).Trim('\n');
+                //var answer = callOpenAI(250, question, "text-davinci-002", 0.7, 1, 1, 0).Trim('\n');
+                var answer = callPythonScript(question);
                 this.panel.Controls.Add(this.answer.GetMessage(answer));
             }
         }
