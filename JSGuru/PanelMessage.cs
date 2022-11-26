@@ -12,7 +12,7 @@ namespace JSGuru
 
         public static readonly int height = 20;
 
-        public static readonly Font font = new Font("Calibri", 12);
+        public static readonly Font font = new Font("Calibri", 16);
         public Label GetMessage(string message);
     }
 }

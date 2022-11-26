@@ -15,7 +15,7 @@ namespace JSGuru
             label.AutoSize = true;
             label.Font = PanelMessage.font;
             label.ForeColor = Color.Blue;
-            label.Location = new Point(600 - label.Width, PanelMessage.id++ * PanelMessage.height);
+            label.Location = new Point(700 - message.Length * 8, PanelMessage.id++ * PanelMessage.height);
             return label;
         }
     }

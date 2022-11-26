@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JSGuru
 {
@@ -13,17 +14,16 @@ namespace JSGuru
         {
             Label label = new Label();
             label.Location = new Point(10, PanelMessage.id++ * PanelMessage.height);
-            if (message.Length > 100)
+            if (message.Length > 150)
             {
-                message = message.Insert(100, "\n");
-                PanelMessage.id++;
+                String[] splited = message.Split("\n");
+                PanelMessage.id += splited.Length - 1;
             }
             label.Text = message;
             label.AutoSize = true;
             label.Font = PanelMessage.font;
-            label.ForeColor = Color.Red;
+            label.ForeColor = Color.Magenta;
             
-
             return label;
         }
     }
