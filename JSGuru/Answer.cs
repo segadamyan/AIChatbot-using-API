@@ -13,11 +13,12 @@ namespace JSGuru
         public Label GetMessage(string message)
         {
             Label label = new Label();
-            label.Location = new Point(10, PanelMessage.id++ * PanelMessage.height);
+            label.Location = new Point(10, 50);
+            //label.Location = new Point(10, PanelMessage.row++ * PanelMessage.height);
             if (message.Length > 150)
             {
                 String[] splited = message.Split("\n");
-                PanelMessage.id += splited.Length - 1;
+                PanelMessage.row += splited.Length - 1;
             }
             label.Text = message;
             label.AutoSize = true;

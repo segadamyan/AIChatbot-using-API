@@ -48,9 +48,9 @@
             // panel
             // 
             this.panel.AutoScroll = true;
-            this.panel.BackColor = System.Drawing.Color.Transparent;
+            this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(70)))), ((int)(((byte)(84)))));
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel.Location = new System.Drawing.Point(12, 38);
+            this.panel.Location = new System.Drawing.Point(12, 47);
             this.panel.Name = "panel";
             this.panel.Padding = new System.Windows.Forms.Padding(10);
             this.panel.Size = new System.Drawing.Size(760, 527);
@@ -63,9 +63,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.Magenta;
-            this.button1.Location = new System.Drawing.Point(684, 6);
+            this.button1.Location = new System.Drawing.Point(660, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
+            this.button1.Size = new System.Drawing.Size(112, 33);
             this.button1.TabIndex = 0;
             this.button1.Text = "BACK";
             this.button1.UseVisualStyleBackColor = false;
